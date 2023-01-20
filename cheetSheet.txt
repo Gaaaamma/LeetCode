@@ -1,0 +1,10 @@
+=================================================================
+Quick Sort: std::sort(begin, end, functor) 
+#incldue <algorithm>
+Ascending order: default
+Descending order: std::greater<Type>() #include <functional>
+Ref: https://shengyu7697.github.io/std-sort/
+
+=================================================================
+Binary Search: std::binary_search(begin, end, target)
+#include <algorithm>
