@@ -5,50 +5,40 @@ using namespace std;
 
 /*
 #27 RemoveElement
-Attempt 1: 
+Attempt 2: 
 Use the concept of left-right pointer to implement 
-(Ugly since haven't had the concept now)
 Complexity: O(N)
 */
 
 class Solution {
 public:
     int removeElement(vector<int>& nums, int val) {
+        int left = 0;
+        int right = nums.size() - 1;  // [first,last]
         int result = nums.size();
-        int changeIndex = nums.size() - 1;
-        int checkIndex = nums.size();
-        bool shouldBreak = false;
 
-        for (int i = 0; i < checkIndex; i++) {
-            if (nums[i] == val) {
-                result--;
-                checkIndex--;
+        while (left <= right) {
+            if (nums[left] == val) {
+                if (nums[right] != val) {
+                    // Swap
+                    int tmp = nums[right];
+                    nums[right] = nums[left];
+                    nums[left] = tmp;
 
-                if (checkIndex == i || result == 0) {
-                    break;
-                }
-
-                // check the last element
-                while (nums[changeIndex] == val) {
+                    // Move pointer
+                    left++;
+                    right--;
                     result--;
-                    checkIndex--;
-                    changeIndex--;
-
-                    if (checkIndex == i || result == 0) {
-                        shouldBreak = true;
-                        break;
-                    }
-                }
-                
-                if (shouldBreak == true) {
+                } else if (nums[right] == val && left != right) {
+                    right--;
+                    result--;
+                } else {
+                    result--;
                     break;
                 }
 
-                // swap
-                int tmp = nums[changeIndex];
-                nums[changeIndex] = nums[i];
-                nums[i] = tmp;
-                changeIndex--;
+            } else {
+                left++;
             }
         }
         return result;
