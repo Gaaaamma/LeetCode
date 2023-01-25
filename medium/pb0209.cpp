@@ -4,44 +4,30 @@
 using namespace std;
 
 /*
-#27 MinimumSizeSubarraySum
+#209 MinimumSizeSubarraySum
 Attempt 1: 
 (Brute force) since no good idea now = O(N^2) => TLE
-Complexity: O()
+(Slide window) A kind of two pointers
+Fast = the end of subArray => Move to find new element
+Slow = the start of subArray => Move when sum is enough and try to remove elements
+Complexity: O(N)
 */
 
 class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
-        for (int i = 1; i <= nums.size(); i++) {
-            int slide = groupSum(i, 0, nums);
-            
-            if (slide >= target) {
-                return i;
-            }
+        int result = INT_MAX;
+        int sum = 0;
+        for (int slow = 0, fast = 0; fast < nums.size(); fast++) {
+            sum += nums[fast];
 
-            // Rowing the slide
-            int front = 0;
-            for (int j = i; j < nums.size(); j++) {
-                slide += nums[j];
-                slide -= nums[front];
-
-                if (slide >= target) {
-                    return i;
-                } else {
-                    front ++;
-                }
+            while (sum >= target) {
+                result = result < fast - slow + 1 ? result : fast - slow + 1;
+                sum -= nums[slow];
+                slow++;
             }
         }
-        return 0;
-    }
-
-    int groupSum(int scope, int start, vector<int>& nums) {
-        int result = 0;
-        for (int i = start; i < start + scope; i++) {
-            result += nums[i];
-        }
-        return result;
+        return result == INT_MAX ? 0 : result;
     }
 };
 
