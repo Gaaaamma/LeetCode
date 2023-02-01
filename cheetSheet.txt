@@ -8,3 +8,13 @@ Ref: https://shengyu7697.github.io/std-sort/
 =================================================================
 Binary Search: std::binary_search(begin, end, target)
 #include <algorithm>
+
+=================================================================
+Data structure: std::unordered_set
+#include <unordered_set>
+
+unordered_set::find(key) = O(1)
+  find = unordered_set::iterator (iterator to that element)
+  No find = unordered_set::end() (It is iterator too)
+
+unordered_set::insert(key) = O(1)
