@@ -18,3 +18,11 @@ unordered_set::find(key) = O(1)
   No find = unordered_set::end() (It is iterator too)
 
 unordered_set::insert(key) = O(1)
+
+=================================================================
+Char to string:
+
+1. single char to string = string(size_t n, char c) 
+=>  Make a string which consists of n times of c
+
+2. char[] to string = string(char*) OR string(addr, addr + length) 
