@@ -1,70 +1,39 @@
 #include <iostream>
 #include <algorithm> 
 #include <vector>
+#include <unordered_map>
 using namespace std;
 
 /*
-#1 TwoSum
-Attempt 1: Accepted
-Use sort and binary_search to find twoSum
-Complexity: O(NlogN)
-Runtime: 13 ms (PR 81.19)
-Memory: 10.3 MB (PR 73.92)
+#1 Two Sum
+Attempt 2: 
+Use unordered_map to solve
+
+Complexity: O(N)
+
+Q: Given an array of integers nums and an integer target, 
+   return indices of the two numbers such that they add up to target.
+
+   You may assume that each input would have exactly one solution, and you may not use the same element twice.
+   You can return the answer in any order.
 */
 
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        vector<int> result;
-        vector<int> origin(nums.begin(), nums.end());
-        sort(nums.begin(), nums.end());
+        unordered_map<int, int> uomap;
 
-        for (int i = 0; i < nums.size(); i++){
-            bool find = false;
-            int remain = target - nums.at(i);
-
-            // Use binary search to find `remain`
-            if (binary_search(nums.begin(), (nums.begin() + i), remain)) {
-                find = true;
-            } else if (binary_search((nums.begin() + i + 1), nums.end(), remain)) {
-                find = true;
-            }
-
-            if (find == true) {
-                int findOne = nums.at(i);
-                int findTwo = remain;
-
-                if (findOne == findTwo) {
-                    int maxTwo = 0;
-                    for (int i = 0; i < origin.size(); i++){
-                        if (origin.at(i) == findOne) {
-                            result.push_back(i);
-                            maxTwo++;
-                            if (maxTwo == 2) {
-                                break;
-                            }
-                        }
-                    }
-
-                } else {
-                    for (int i = 0; i < origin.size(); i++) {
-                        if (origin.at(i) == findOne) {
-                            result.push_back(i);
-                            break;
-                        }
-                    }
-                    for (int i = 0; i < origin.size(); i++) {
-                        if (origin.at(i) == findTwo) {
-                            result.push_back(i);
-                            break;
-                        }
-                    }
-                }
-                break;
+        for (int i = 0; i < nums.size(); i++) {
+            int remain = target - nums[i];
+            if (uomap.count(remain) == false) {
+                // Not find
+                uomap.insert({nums[i], i});
+            } else {
+                // Find
+                return vector<int>{i, uomap[remain]};
             }
         }
-
-        return result;
+        return vector<int>{0};
     }
 };
 
