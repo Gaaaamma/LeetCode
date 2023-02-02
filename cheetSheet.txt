@@ -26,3 +26,11 @@ Char to string:
 =>  Make a string which consists of n times of c
 
 2. char[] to string = string(char*) OR string(addr, addr + length) 
+
+=================================================================
+String to int:
+stoi(string)
+
+=================================================================
+int to string:
+to_string(int)
