@@ -3,12 +3,12 @@
 CPPFILES= pbxxx.cpp
 
 EXEFILES=$(CPPFILES:.cpp=)
-FLAGS=-Wall
+FLAGS=-std=c++11 -Wall
 
 all: $(EXEFILES)
 
 %: %.cpp
-	g++ $< $(FLAGS) -o $@
+	g++  $< $(FLAGS) -o $@
 
 clean:
 	rm -f $(EXEFILES)
