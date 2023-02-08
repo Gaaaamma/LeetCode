@@ -20,6 +20,16 @@ unordered_set::find(key) = O(1)
 unordered_set::insert(key) = O(1)
 
 =================================================================
+Data structure: std::multimap
+#include <map>
+
+unordered_set::find(key) = O(1)
+  find = unordered_set::iterator (iterator to that element)
+  No find = unordered_set::end() (It is iterator too)
+
+unordered_set::insert(key) = O(1)
+
+=================================================================
 Char to string:
 
 1. single char to string = string(size_t n, char c) 
