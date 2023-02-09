@@ -8,25 +8,41 @@ using namespace std;
 Attempt 1: 
 Use an extra variable result to store the output
 
+Attempt 2:
+Use two pointer to solve (No extra variable)
+
 Complexity: O(N)
 
 Q: 请实现一个函数，把字符串 s 中的每个空格替换成"%20"。
-   - 输入：s = "We are happy."
+   - 输入：s = "We are happy._ _ _ _"
    - 输出："We%20are%20happy."
 */     
 
 class Solution {
 public:
     string replaceSpace(string s) {
-        string result;
+        int count = 0;
+        int oldSize = s.size();
         for (int i = 0; i < s.size(); i++) {
-            if (s[i] == ' ') {
-                result += "%20";
+            if (s[i] == ' ') 
+                count++;
+        }
+        s.resize(oldSize + count * 2);
+
+        // Replace
+        int j = s.size() - 1;
+        for (int i = oldSize - 1; i >= 0; i--) {
+            if (s[i] != ' ') {
+                s[j] = s[i];
+                j--;
             } else {
-                result += s[i];
+                s[j] = '0';
+                s[j - 1] = '2';
+                s[j - 2] = '%';
+                j = j - 3; 
             }
         }
-        return result;
+        return s;
     }
 };
 
