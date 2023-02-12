@@ -40,6 +40,17 @@ void stack::push(val) = O(1)
   push the element in the stack at top
 
 =================================================================
+Data structure: std::queue
+#include <queue>
+
+val stack::front() = O(1)
+  return the first element
+void stack::pop() = O(1)
+  pop the element from front
+void stack::push(val) = O(1)
+  push the element in the queue at back
+
+=================================================================
 String:
 
 # Char to string:
