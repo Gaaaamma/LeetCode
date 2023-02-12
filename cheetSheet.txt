@@ -30,21 +30,26 @@ unordered_set::find(key) = O(1)
 unordered_set::insert(key) = O(1)
 
 =================================================================
-Char to string:
+String:
 
+# Char to string:
 1. single char to string = string(size_t n, char c) 
 =>  Make a string which consists of n times of c
 
 2. char[] to string = string(char*) OR string(addr, addr + length) 
 
-=================================================================
-String to int:
+# String to int:
 stoi(string)
 
-=================================================================
-int to string:
+# int to string:
 to_string(int)
 
-=================================================================
-sub string:
-substr(int start, size_t length);
+# substring:
+str.substr(int start, size_t length);
+
+# reverse:
+reverse(begin, end);
+
+# find:
+str.find - index
+         - string::npos
