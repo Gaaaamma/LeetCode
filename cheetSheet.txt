@@ -28,6 +28,16 @@ unordered_set::find(key) = O(1)
   No find = unordered_set::end() (It is iterator too)
 
 unordered_set::insert(key) = O(1)
+=================================================================
+Data structure: std::stack
+#include <stack>
+
+val stack::top() = O(1)
+  return the element from top
+void stack::pop() = O(1)
+  pop the element from top
+void stack::push(val) = O(1)
+  push the element in the stack at top
 
 =================================================================
 String:
@@ -53,3 +63,4 @@ reverse(begin, end);
 # find:
 str.find - index
          - string::npos
+    
