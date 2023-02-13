@@ -9,7 +9,7 @@ using namespace std;
 Attempt 1: 
 Use stack to compute postfix representation
 
-Complexity: O(-)
+Complexity: O(N)
 
 Q: You are given an array of strings tokens that represents an arithmetic expression in a Reverse Polish Notation.
    Evaluate the expression. Return an integer that represents the value of the expression.

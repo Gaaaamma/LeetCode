@@ -1,6 +1,6 @@
 .PHONY: all clean
 
-CPPFILES= pbxxx.cpp
+CPPFILES= pb0239.cpp
 
 EXEFILES=$(CPPFILES:.cpp=)
 FLAGS=-std=c++11 -Wall
