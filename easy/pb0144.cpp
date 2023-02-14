@@ -8,6 +8,9 @@ using namespace std;
 Attempt 1: 
 Use recursive way to solve
 
+Attempt 2:
+Use iterative way to solve
+
 Complexity: O(N) if only output the value
 
 Q: Given the root of a binary tree, 
@@ -49,6 +52,25 @@ public:
         return result;
     }
     
+    vector<int> preorderTraversalIter(TreeNode* head) {
+        vector<int> result;
+        if (head == nullptr) return vector<int>{};
+        stack<TreeNode*> treeStack;
+        treeStack.push(head);
+
+        // DLR
+        while (!treeStack.empty()) {
+            TreeNode* top = treeStack.top();
+            treeStack.pop();
+            result.push_back(top->val);
+            
+            if (top->right != nullptr) treeStack.push(top->right);
+            if (top->left != nullptr) treeStack.push(top->left);
+        }
+
+        return result;
+    }
+
     TreeNode* createBST(vector<int> nums) {
         TreeNode* head = new TreeNode(nums[0]);
         for (int i = 1; i < nums.size(); i++) {
@@ -76,7 +98,9 @@ int main(int argc, char* argv[]) {
     vector<vector<int>> input{{5,2,1,6,3,4,9,7,8,10}, {1}, {5,6,2,7,5,3,7,1,9,2}};
     Solution solution;
     for (int i = 0; i < input.size(); i++) {
-        cout << "Preorder:   ";
+        cout << "Preorder:\n";
         output(solution.preorderTraversal(solution.createBST(input[i])));
+        output(solution.preorderTraversalIter(solution.createBST(input[i])));
+        cout << "\n";
     }
 }
