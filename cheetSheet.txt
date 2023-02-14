@@ -1,4 +1,26 @@
 =================================================================
+Vector:
+#include <vector>
+
+vector::push_back(element)
+  push and element to back of vector
+
+vector::pop_back()
+  remove the last element in vector
+
+vector::back()
+  get last element from vector
+
+vector::erase(index)
+  remove the element at index
+
+vector::insert(position, ...)
+  insert something at position of vector
+  iterator from another vector is legal too
+  Ex: vec.insert(vec.end(), src.begin(), src.end())
+
+
+=================================================================
 Quick Sort: std::sort(begin, end, functor) 
 #incldue <algorithm>
 Ascending order: default
