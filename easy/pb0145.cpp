@@ -1,12 +1,16 @@
 #include <iostream>
 #include <vector>
 #include <stack>
+#include <unordered_set>
 using namespace std;
 
 /*
 #145 Binary Tree Postorder Traversal
 Attempt 1: 
 Use recursive way to solve
+
+Attempt 2:
+Use iterative way to solve (stack + unordered_set to check if had traversed)
 
 Complexity: O(N) if only output the value
 
@@ -47,6 +51,31 @@ public:
         return result;
     }
     
+    vector<int> postorderTraversalIter(TreeNode* root) {
+        if (root == nullptr) return vector<int>{};
+        vector<int> result;
+        stack<TreeNode*> treeStack;
+        unordered_set<TreeNode*> traversed;
+        treeStack.push(root);
+
+        // LRD
+        while (!treeStack.empty()) {
+            TreeNode* traverse = treeStack.top();
+            if (traverse->left != nullptr && !traversed.count(traverse->left)) {
+                traverse = traverse->left;
+                treeStack.push(traverse);
+            } else if (traverse->right != nullptr && !traversed.count(traverse->right)) {
+                traverse = traverse->right;
+                treeStack.push(traverse);
+            } else {
+                result.push_back(traverse->val);
+                traversed.insert(treeStack.top());
+                treeStack.pop();
+            }
+        }
+        return result;
+    }
+
     TreeNode* createBST(vector<int> nums) {
         TreeNode* head = new TreeNode(nums[0]);
         for (int i = 1; i < nums.size(); i++) {
@@ -74,7 +103,8 @@ int main(int argc, char* argv[]) {
     vector<vector<int>> input{{5,2,1,6,3,4,9,7,8,10}, {1}, {5,6,2,7,5,3,7,1,9,2}};
     Solution solution;
     for (int i = 0; i < input.size(); i++) {
-        cout << "Postorder:   ";
+        cout << "Postorder:\n";
         output(solution.postorderTraversal(solution.createBST(input[i])));
+        output(solution.postorderTraversalIter(solution.createBST(input[i])));
     }
 }
