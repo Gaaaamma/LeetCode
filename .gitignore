@@ -4,3 +4,6 @@ traverseTree
 .vscode
 !*.cpp
 backpack01
+bubbleSort
+selectSort
+insertSort

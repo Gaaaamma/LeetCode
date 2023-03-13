@@ -1,6 +1,6 @@
 .PHONY: all clean
 
-CPPFILES= backpack01.cpp
+CPPFILES= backpack01.cpp bubbleSort.cpp selectSort.cpp insertSort.cpp
 
 EXEFILES=$(CPPFILES:.cpp=)
 FLAGS=-std=c++11 -Wall
