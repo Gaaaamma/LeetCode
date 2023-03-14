@@ -6,7 +6,7 @@ using namespace std;
 /*
 #746 Best Time to Buy and Sell Stock
 Attempt 1: 
-use greedy to solve
+use DP to solve
 
 Q: You are given an array prices where prices[i] is the price of a given stock on the ith day.
 
@@ -19,13 +19,25 @@ Q: You are given an array prices where prices[i] is the price of a given stock o
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        int maxProfit = 0;
-        int minPrice = INT_MAX;
-        for (int i = 0; i < prices.size(); i++) {
-            if (prices[i] < minPrice) minPrice = prices[i];
-            if (prices[i] - minPrice > maxProfit) maxProfit = prices[i] - minPrice;
+        vector<vector<int>> profit(prices.size(), vector<int>(2,0));
+        profit[0][0] = 0;
+        profit[0][1] = -1 * prices[0];
+        for (int i = 1; i < prices.size(); i++) {
+            profit[i][0] = max(profit[i - 1][0], profit[i - 1][1] + prices[i]);
+            profit[i][1] = max(profit[i - 1][1], -prices[i]);
+            // show(profit);
         }
-        return maxProfit;
+        return max(profit.back()[0], profit.back()[1]);
+    }
+    void show(vector<vector<int>>& input) {
+        for (int i = 0; i < input.size(); i++) {
+            cout << input[i][0] << " ";
+        }
+        cout << "\n";
+        for (int i = 0; i < input.size(); i++) {
+            cout << input[i][1] << " ";
+        }
+        cout << "\n\n";
     }
 };
 
