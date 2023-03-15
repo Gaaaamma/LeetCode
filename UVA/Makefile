@@ -1,6 +1,6 @@
 .PHONY: all clean
 
-CPPFILES= SuperLongSum.cpp
+CPPFILES= SuperLongSum.cpp ILoveBigNums.cpp
 
 EXEFILES=$(CPPFILES:.cpp=)
 FLAGS=-std=c++11 -Wall
