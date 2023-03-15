@@ -8,3 +8,5 @@ bubbleSort
 selectSort
 insertSort
 quickSort
+*.txt
+SuperLongSum
