@@ -16,13 +16,8 @@ string bigAdd(vector<int>& num1, vector<int>& num2) {
     int flag = 0;
     for (int i = num1.size() - 1; i >= 0; i--) {
         int sum = num1[i] + num2[i] + flag;
-        if (sum >= 10) {
-            flag = 1;
-            sum %= 10;
-        } else {
-            flag = 0;
-        }
-        rtn += to_string(sum);
+        flag = sum / 10;
+        rtn += to_string(sum % 10);
     }
 
     reverse(rtn.begin(), rtn.end());
