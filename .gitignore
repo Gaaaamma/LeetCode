@@ -11,3 +11,5 @@ quickSort
 *.txt
 SuperLongSum
 ILoveBigNums
+MinimalCoverage
+Parity
