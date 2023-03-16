@@ -1,6 +1,6 @@
 .PHONY: all clean
 
-CPPFILES= SuperLongSum.cpp ILoveBigNums.cpp MinimalCoverage.cpp Parity.cpp
+CPPFILES= SuperLongSum.cpp ILoveBigNums.cpp MinimalCoverage.cpp Parity.cpp Sumsets.cpp
 
 EXEFILES=$(CPPFILES:.cpp=)
 FLAGS=-std=c++11 -Wall
