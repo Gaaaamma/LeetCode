@@ -14,34 +14,18 @@ class Solution {
 public:
     int removeElement(vector<int>& nums, int val) {
         int left = 0;
-        int right = nums.size() - 1;  // [first,last]
-        int result = nums.size();
-
+        int right = nums.size() - 1;
         while (left <= right) {
-            if (nums[left] == val) {
-                if (nums[right] != val) {
-                    // Swap
-                    int tmp = nums[right];
-                    nums[right] = nums[left];
-                    nums[left] = tmp;
-
-                    // Move pointer
-                    left++;
-                    right--;
-                    result--;
-                } else if (nums[right] == val && left != right) {
-                    right--;
-                    result--;
-                } else {
-                    result--;
-                    break;
-                }
-
-            } else {
-                left++;
+            if (nums[right] == val) {
+                right--;
+                continue;
             }
+            if (nums[left] == val) {
+                swap(nums[left], nums[right]);
+            }
+            left++;
         }
-        return result;
+        return left;
     }
 };
 
