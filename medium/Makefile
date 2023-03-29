@@ -9,7 +9,7 @@ pb0435.cpp pb0763.cpp pb0056.cpp pb0738.cpp pb0714.cpp pb0062.cpp pb0063.cpp pb0
 pb0494.cpp pb0474.cpp pb0518.cpp pb0377.cpp pb0322.cpp pb0279.cpp pb0139.cpp pb0198.cpp pb0213.cpp pb0337.cpp pb0309.cpp \
 pb0300.cpp pb0718.cpp pb1143.cpp pb1035.cpp pb0739.cpp pb0002.cpp pb0011.cpp pb0022.cpp pb0967.cpp pb0003.cpp pb0005.cpp \
 pb0031.cpp pb0054.cpp pb0064.cpp pb0073.cpp pb0074.cpp pb0033.cpp pb0200.cpp pb0207.cpp pb0994.cpp pb0230.cpp pb0438.cpp \
-pb0394.cpp
+pb0394.cpp pb0155.cpp
 
 EXEFILES=$(CPPFILES:.cpp=)
 FLAGS=-std=c++11 -Wall
