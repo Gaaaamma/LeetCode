@@ -10,17 +10,16 @@ void show(vector<int>& input) {
 
 // [l, r]
 int partition(vector<int>& nums, int l, int r) {
-    if (l >= r) return l;
-    int pivot = nums[l];
-    int findBig = l + 1;
-    int findSmall = r;
-    while (findBig <= findSmall) {
-        while (findBig <= r && nums[findBig] <= pivot) findBig++;
-        while (findSmall >= l && nums[findSmall] > pivot) findSmall--;
-        if (findBig <= findSmall) swap(nums[findBig], nums[findSmall]);
+    int slow = l;
+    int pivot = nums[r];
+    for (int fast = l; fast < r; fast++) {
+        if (nums[fast] <= pivot) {
+            swap(nums[slow], nums[fast]);
+            slow++;
+        }
     }
-    swap(nums[l], nums[findSmall]);
-    return findSmall;
+    swap(nums[slow], nums[r]);
+    return slow;
 }
 void quickSort(vector<int>& nums, int l, int r) {
     if (l >= r) return;
