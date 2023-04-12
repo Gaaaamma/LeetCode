@@ -21,10 +21,18 @@ int main(int argc, char* argv[]) {
     Car carB = carA;
     Car carC = move(carB);
 
-    cout << "carA: ";
+    cout << "\ncarA: ";
     carA.showInfo();
     cout << "carB: copy from carA (had been moved to carC) ";
     carB.showInfo();
     cout << "carC: (get resource from carB) ";
     carC.showInfo();
+
+    vector<Car> cars;
+    cars.reserve(2);
+    cout << "\npush_back:\n";
+    cars.push_back(carA);
+
+    cout << "\nemplace_back:\n";
+    cars.emplace_back(2023, "TESLA");
 }
