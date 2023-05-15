@@ -2,26 +2,25 @@ package main
 
 import (
 	"fmt"
-	"gaaaamma/tree"
+	"gaaaamma/list"
+	"gaaaamma/medium"
 )
 
+type Input struct {
+	nums []int
+	k    int
+}
+
 func main() {
-	testInt := []int{0, 1, tree.Null, 3, tree.Null, 4, tree.Null, 5, 6}
-	root := tree.CreateBinaryTree(testInt)
-	tree.GenerateGraph(root)
-	result := []int{}
-	tree.Inorder(root, &result)
-	fmt.Println(result)
+	input := []Input{{[]int{1, 2, 3, 4, 5}, 2}, {[]int{1}, 1}, {[]int{1, 2, 3}, 1}, {[]int{1, 2, 3}, 2}, {[]int{1, 2, 3}, 3}}
+	for _, item := range input {
+		fmt.Printf("Init:  ")
+		root := list.CreateList(item.nums)
+		list.Traverse(root)
 
-	result = []int{}
-	tree.Preorder(root, &result)
-	fmt.Println(result)
-
-	result = []int{}
-	tree.Postorder(root, &result)
-	fmt.Println(result)
-
-	result = []int{}
-	tree.Levelorder(root, &result)
-	fmt.Println(result)
+		fmt.Printf("After: ")
+		medium.SwapNodes(root, item.k)
+		list.Traverse(root)
+		fmt.Println()
+	}
 }
