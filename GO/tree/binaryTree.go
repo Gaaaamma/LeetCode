@@ -10,9 +10,9 @@ const (
 )
 
 type TreeNode struct {
-	val   int
-	left  *TreeNode
-	right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 func CreateBinaryTree(input []int) *TreeNode {
@@ -29,11 +29,11 @@ func CreateBinaryTree(input []int) *TreeNode {
 			}
 		} else {
 			if first {
-				treeQue[0].left = &TreeNode{input[i], nil, nil}
-				treeQue = append(treeQue, treeQue[0].left)
+				treeQue[0].Left = &TreeNode{input[i], nil, nil}
+				treeQue = append(treeQue, treeQue[0].Left)
 			} else {
-				treeQue[0].right = &TreeNode{input[i], nil, nil}
-				treeQue = append(treeQue, treeQue[0].right)
+				treeQue[0].Right = &TreeNode{input[i], nil, nil}
+				treeQue = append(treeQue, treeQue[0].Right)
 				treeQue = treeQue[1:]
 			}
 		}
@@ -46,27 +46,27 @@ func Inorder(root *TreeNode, result *[]int) {
 	if root == nil {
 		return
 	}
-	Inorder(root.left, result)
-	*result = append(*result, root.val)
-	Inorder(root.right, result)
+	Inorder(root.Left, result)
+	*result = append(*result, root.Val)
+	Inorder(root.Right, result)
 }
 
 func Preorder(root *TreeNode, result *[]int) {
 	if root == nil {
 		return
 	}
-	*result = append(*result, root.val)
-	Preorder(root.left, result)
-	Preorder(root.right, result)
+	*result = append(*result, root.Val)
+	Preorder(root.Left, result)
+	Preorder(root.Right, result)
 }
 
 func Postorder(root *TreeNode, result *[]int) {
 	if root == nil {
 		return
 	}
-	Postorder(root.left, result)
-	Postorder(root.right, result)
-	*result = append(*result, root.val)
+	Postorder(root.Left, result)
+	Postorder(root.Right, result)
+	*result = append(*result, root.Val)
 }
 
 func Levelorder(root *TreeNode, result *[]int) {
@@ -75,13 +75,13 @@ func Levelorder(root *TreeNode, result *[]int) {
 	}
 	treeQue := []*TreeNode{root}
 	for len(treeQue) > 0 {
-		if treeQue[0].left != nil {
-			treeQue = append(treeQue, treeQue[0].left)
+		if treeQue[0].Left != nil {
+			treeQue = append(treeQue, treeQue[0].Left)
 		}
-		if treeQue[0].right != nil {
-			treeQue = append(treeQue, treeQue[0].right)
+		if treeQue[0].Right != nil {
+			treeQue = append(treeQue, treeQue[0].Right)
 		}
-		*result = append(*result, treeQue[0].val)
+		*result = append(*result, treeQue[0].Val)
 		treeQue = treeQue[1:]
 	}
 }
@@ -102,10 +102,10 @@ func GenerateGraph(root *TreeNode) {
 					treeQue = append(treeQue, nil)
 				}
 			} else {
-				fmt.Printf("%d", treeQue[0].val)
+				fmt.Printf("%d", treeQue[0].Val)
 				if counter*2+1 < GraphMaximumNode {
-					treeQue = append(treeQue, treeQue[0].left)
-					treeQue = append(treeQue, treeQue[0].right)
+					treeQue = append(treeQue, treeQue[0].Left)
+					treeQue = append(treeQue, treeQue[0].Right)
 				}
 			}
 			treeQue = treeQue[1:]
