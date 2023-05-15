@@ -3,6 +3,7 @@ ex*
 traverseTree
 .vscode
 !*.cpp
+!*.go
 backpack01
 bubbleSort
 selectSort

@@ -4,6 +4,7 @@ use (
 	.
 	./easy
 	./hard
+	./list
 	./medium
 	./tree
 )
