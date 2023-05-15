@@ -6,8 +6,9 @@ import (
 )
 
 func main() {
-	testInt := []int{5, 3, 7, 1, tree.Null, tree.Null, 9}
+	testInt := []int{0, 1, tree.Null, 3, tree.Null, 4, tree.Null, 5, 6}
 	root := tree.CreateBinaryTree(testInt)
+	tree.GenerateGraph(root)
 	result := []int{}
 	tree.Inorder(root, &result)
 	fmt.Println(result)
