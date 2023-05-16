@@ -8,18 +8,17 @@ import (
 
 type Input struct {
 	nums []int
-	k    int
 }
 
 func main() {
-	input := []Input{{[]int{1, 2, 3, 4, 5}, 2}, {[]int{1}, 1}, {[]int{1, 2, 3}, 1}, {[]int{1, 2, 3}, 2}, {[]int{1, 2, 3}, 3}}
+	input := []Input{{[]int{1, 2, 3}}, {[]int{1, 2, 3, 4}}, {[]int{1, 2, 3, 4, 5, 6}}}
 	for _, item := range input {
-		fmt.Printf("Init:  ")
+		fmt.Printf("Init: ")
 		root := list.CreateList(item.nums)
 		list.Traverse(root)
 
 		fmt.Printf("After: ")
-		medium.SwapNodes(root, item.k)
+		root = medium.SwapPairs(root)
 		list.Traverse(root)
 		fmt.Println()
 	}
