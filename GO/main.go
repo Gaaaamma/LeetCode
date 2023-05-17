@@ -11,15 +11,12 @@ type Input struct {
 }
 
 func main() {
-	input := []Input{{[]int{1, 2, 3}}, {[]int{1, 2, 3, 4}}, {[]int{1, 2, 3, 4, 5, 6}}}
+	input := []Input{{[]int{1, 3, 4, 10}}, {[]int{1, 5, 7, 10}}, {[]int{1, 3, 4, 8, 8, 4, 3, 1}}}
 	for _, item := range input {
-		fmt.Printf("Init: ")
 		root := list.CreateList(item.nums)
+		fmt.Printf("List: ")
 		list.Traverse(root)
-
-		fmt.Printf("After: ")
-		root = medium.SwapPairs(root)
-		list.Traverse(root)
+		fmt.Printf("Max pair sum: %d\n", medium.PairSum(root))
 		fmt.Println()
 	}
 }
