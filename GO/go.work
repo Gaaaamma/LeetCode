@@ -6,5 +6,6 @@ use (
 	./hard
 	./list
 	./medium
+	./test
 	./tree
 )

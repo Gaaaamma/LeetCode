@@ -31,3 +31,13 @@ func Traverse(root *ListNode) {
 	}
 	fmt.Println()
 }
+
+func TraverseSlice(root *ListNode) []int {
+	result := []int{}
+	traverse := root
+	for traverse != nil {
+		result = append(result, traverse.Val)
+		traverse = traverse.Next
+	}
+	return result
+}
